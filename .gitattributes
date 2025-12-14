@@ -1,0 +1,16 @@
+# Ignore build and generated files
+/build/** linguist-vendored
+/.dart_tool/** linguist-vendored
+/.idea/** linguist-vendored
+/android/** linguist-vendored
+/ios/** linguist-vendored
+/macos/** linguist-vendored
+/windows/** linguist-vendored
+/linux/** linguist-vendored
+/web/** linguist-vendored
+
+# Specify Dart as the language for Dart files
+*.dart linguist-language=Dart
+*.yaml linguist-language=YAML
+*.json linguist-language=JSON
+*.md linguist-language=Markdown
