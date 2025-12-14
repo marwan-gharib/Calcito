@@ -3,18 +3,13 @@ import 'package:calculator/features/calculator/domain/services/equation_controll
 import 'package:calculator/features/calculator/domain/services/equation_provider.dart';
 import 'package:flutter/material.dart';
 
-class Button extends StatefulWidget {
+class Button extends StatelessWidget {
   final String char;
   final VoidCallback? onPress;
   final Icon? icon;
 
   const Button({super.key, required this.char, this.onPress, this.icon});
 
-  @override
-  State<Button> createState() => _ButtonState();
-}
-
-class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController equation = _getEquationController(context);
@@ -23,44 +18,36 @@ class _ButtonState extends State<Button> {
         EquationControllerService();
 
     return GestureDetector(
-      onLongPressStart: widget.icon != null
+      onLongPressStart: icon != null
           ? (_) => equationControllerService.startDeleting(equation)
-          : (_) =>
-                equationControllerService.startInserting(equation, widget.char),
-      onLongPressEnd: widget.icon != null
+          : (_) => equationControllerService.startInserting(equation, char),
+      onLongPressEnd: icon != null
           ? (_) => equationControllerService.stopDeleting()
           : (_) => equationControllerService.stopInserting(),
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(
-            double.tryParse(widget.char) != null
+            double.tryParse(char) != null
                 ? GREY
-                : widget.char == 'C'
+                : char == 'C'
                 ? Colors.red
-                : (widget.icon != null ||
-                      widget.char == '=' ||
-                      widget.char == '.')
+                : (icon != null || char == '=' || char == '.')
                 ? BLUE
                 : GREEN,
           ),
         ),
         onPressed:
-            widget.onPress ??
-            () => widget.icon == null
-                ? equationControllerService.insertEquation(
-                    equation,
-                    widget.char,
-                  )
+            onPress ??
+            () => icon == null
+                ? equationControllerService.insertEquation(equation, char)
                 : equationControllerService.deleteAtCursor(equation),
         child:
-            widget.icon ??
+            icon ??
             Text(
-              widget.char,
+              char,
               style: TextStyle(
                 fontSize: 30,
-                color: (widget.char == '=' || widget.char == '.')
-                    ? WHITE
-                    : WHITE,
+                color: (char == '=' || char == '.') ? WHITE : WHITE,
                 fontWeight: FontWeight.w900,
               ),
             ),

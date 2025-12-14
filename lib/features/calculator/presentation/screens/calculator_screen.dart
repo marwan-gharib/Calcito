@@ -205,7 +205,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           try {
                             output = Calculator.calculator(_equation.text);
                           } catch (e) {
-                            snackBar(context, e.toString());
+                            snackBar(context, e.toString().substring(11));
                           }
                         })
                       : null,
