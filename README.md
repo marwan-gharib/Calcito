@@ -1,7 +1,7 @@
 # 🧮 Calcito
 
 <p align="center">
-  <img src="assets/screenshots/calcito_logo.png" width="120" alt="Calcito Logo" />
+  <img src="assets/logo/calcito_logo.png" width="120" alt="Calcito Logo" />
 </p>
 
 <p align="center">
@@ -76,36 +76,6 @@ This project serves as a **portfolio-grade application**, showcasing Flutter dev
 
 ---
 
-## 📂 Project Structure
-
-```text
-lib/
-│── core/
-│   ├── utils/
-│   └── constants/
-│
-│── features/
-│   └── calculator/
-│       ├── logic/
-│       └── presentation/
-│
-└── main.dart
-```
-
----
-
-## 📸 Screenshots
-
-> Screenshots and GIFs showcasing UI and interactions
-
-<p align="center">
-  <img src="assets/screenshots/home.png" width="250" />
-  <img src="assets/screenshots/calculation.png" width="250" />
-  <img src="assets/screenshots/calculation.gif" width="250" />
-</p>
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -144,7 +114,6 @@ flutter run
 ## 🚧 Future Improvements
 
 * 📜 Calculation history
-* 🌙 Dark mode
 * 🎯 Scientific functions (sin, cos, tan)
 * ⌨️ Keyboard input support
 
